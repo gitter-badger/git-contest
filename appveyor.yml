@@ -1,0 +1,24 @@
+version: "{build}"
+
+install:
+  - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
+  - ruby --version
+
+  - gem install bundler --no-ri --no-rdoc
+  - bundle config build.nokogiri --use-system-libraries
+  - bundle install --jobs 4
+
+test_script:
+  - cmd: bundle exec rake spec
+
+build: off
+
+environment:
+
+  matrix:
+    - ruby_version: "21"
+    - ruby_version: "20"
+    - ruby_version: "19"
+    - ruby_version: "21-x64"
+    - ruby_version: "20-x64"
+    - ruby_version: "19-x64"
