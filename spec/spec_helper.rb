@@ -46,10 +46,13 @@ RSpec.configure do |config|
   config.include SpecHelpers
   config.before :each do
     WebMock.disable_net_connect!
-    @temp_dir = `mktemp -d /tmp/XXXXXXXXXXXXX`.strip
-    Dir.chdir "#{@temp_dir}"
+    @temp_dir = Dir.mktmpdir
+    Dir.chdir @temp_dir
     Dir.mkdir "home"
     init_env
+  end
+  config.after :each do
+    FileUtils.rm @temp_dir, :force => true
   end
   config.order = 'random'
 end
