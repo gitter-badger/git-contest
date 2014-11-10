@@ -25,3 +25,6 @@ deploy:
   gem:
     master: git-contest
 
+notifications:
+  slack:
+    secure: glBLJgzreBTo6CW7kC3uMi/MWQwoWv01xdMdrtTFRF5TmMgaQg2mRHNrlpRRNCBNtY4NnFI2KrGsi4/TG5tb1zyUoewMHexE7On/IGkDbnQN590BBh1Tv6zeqhTaU7dJ1sV47heqArZn12AHvHITCpgbvq0lyqTm00H1rdRepZU=
